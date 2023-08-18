@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/cf6f291aba.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/page-icon.png" />
+    <title>Check your weather</title>
+
+    <link rel="stylesheet" type="text/css" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="search-form-div">
+        <form id="search-bar-form" class="search-bar-form col-sm-12">
+          <input
+            id="search-bar"
+            type="text"
+            placeholder="Search for a city.."
+            autocomplete="off"
+            autofocus="on"
+            class="col-sm-8"
+          />
+          <button id="search-bar-button">
+            <i
+              id="search-bar-button"
+              class="fa-solid fa-magnifying-glass search-bar-button col-sm-3"
+            ></i>
+          </button>
+        </form>
+      </div>
+      <div class="location-info-div">
+        <h3 id="city">Name of a city</h3>
+        <p id="location-time">Last updated:</p>
+        <p id="weather-description" class="weather-description">
+          Weather description
+        </p>
+      </div>
+      <div class="weather-info">
+        <div class="temperature-info">
+          <img
+            src="images/cloudy_sun.png"
+            alt=""
+            class="weather-icon"
+            id="weather-icon"
+          />
+          <h1 id="temperature" class="temperature">30°</h1>
+          <p class="cels" id="cels">C</p>
+          <span> | </span>
+          <p class="fahr" id="fahr">F</p>
+        </div>
+        <div class="other-info">
+          <p id="humidity" class="humidity">Humidity:</p>
+          <p class="wind" id="wind">Wind:</p>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
