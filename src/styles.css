@@ -46,3 +46,12 @@ span {
   margin-right: 20%;
   line-height: 5px;
 }
+
+.cels {
+  cursor: pointer;
+}
+
+.fahr {
+  cursor: pointer;
+  color: blue;
+}
