@@ -22,21 +22,21 @@
   <body>
     <div class="main-div">
       <div class="search-form-div">
-        <form id="search-bar-form" class="search-bar-form col-sm-12">
-          <input
-            id="search-bar"
-            type="text"
-            placeholder="Search for a city.."
-            autocomplete="off"
-            autofocus="on"
-            class="col-sm-8"
-          />
-          <button type="submit" id="search-bar-button">
-            <i
-              id="search-bar-button"
-              class="fa-solid fa-magnifying-glass search-bar-button col-sm-3"
-            ></i>
-          </button>
+        <form id="search-bar-form" class="search-bar-form mb-3">
+          <div class="row">
+            <div class="col-9">
+              <input
+                id="search-bar"
+                type="text"
+                placeholder="Search for a city.."
+                autocomplete="off"
+                autofocus="on"
+              />
+            </div>
+            <div class="col-3">
+              <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+          </div>
         </form>
       </div>
       <div class="location-info-div">
@@ -57,6 +57,16 @@
           <p class="wind">Wind: <span id="wind"></span>km/h</p>
         </div>
       </div>
+    </div>
+    <div class="footer">
+      <p>
+        Coded by <b>JuliaD</b> ||
+        <a
+          href="https://github.com/its-me-Julia/weather_app_week_7_netlify"
+          class="footer-link"
+          >Open-source code</a
+        >
+      </p>
     </div>
     <script src="src/index.js"></script>
   </body>

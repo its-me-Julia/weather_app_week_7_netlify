@@ -52,3 +52,11 @@ span {
   cursor: default;
   text-decoration: none;
 }
+
+.footer {
+  text-align: center;
+}
+
+.footer-link {
+  text-decoration: none;
+}
