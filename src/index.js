@@ -30,11 +30,6 @@ function getTemperature(response) {
   let locationTime = document.querySelector("#location-time");
   let weatherIcon = document.querySelector("#weather-icon");
 
-  document.getElementById("fahr").style.fontSize = "100%";
-  document.getElementById("cels").style.fontSize = "100%";
-  document.getElementById("cels").style.fontWeight = "normal";
-  document.getElementById("fahr").style.fontWeight = "normal";
-
   celsiusTemp = response.data.temperature.current;
 
   temperature.innerHTML = `${Math.round(response.data.temperature.current)}°`;
@@ -70,23 +65,15 @@ function changeToFahr() {
   let fahrTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let temp = document.querySelector("#temperature");
   temp.innerHTML = `${fahrTemp}°`;
-  document.getElementById("fahr").style.fontSize = "20px";
-  document.getElementById("fahr").style.fontWeight = "bold";
-  document.getElementById("fahr").style.color = "black";
-  document.getElementById("cels").style.color = "blue";
-  document.getElementById("cels").style.fontSize = "100%";
-  document.getElementById("cels").style.fontWeight = "normal";
+  cels.classList.remove("active");
+  fahr.classList.add("active");
 }
 
 function changeToCels() {
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(celsiusTemp);
-  document.getElementById("cels").style.fontSize = "20px";
-  document.getElementById("fahr").style.fontSize = "100%";
-  document.getElementById("cels").style.fontWeight = "bold";
-  document.getElementById("fahr").style.fontWeight = "normal";
-  document.getElementById("cels").style.color = "black";
-  document.getElementById("fahr").style.color = "blue";
+  temp.innerHTML = `${Math.round(celsiusTemp)}°`;
+  cels.classList.add("active");
+  fahr.classList.remove("active");
 }
 
 let celsiusTemp = null;

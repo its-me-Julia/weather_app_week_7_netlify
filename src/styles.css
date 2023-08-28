@@ -47,11 +47,8 @@ span {
   line-height: 5px;
 }
 
-.cels {
-  cursor: pointer;
-}
-
-.fahr {
-  cursor: pointer;
-  color: blue;
+.temperature-info .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
 }
