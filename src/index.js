@@ -21,6 +21,33 @@ function getDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <div class="forecast-day">${day}</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              alt=""
+              width="70px"
+            />
+            <div class="forecast-temperature">
+              <span class="forecast-max-temperature">23°</span> /
+              <span class="forecast-min-temperature">15°</span>
+            </div>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function getTemperature(response) {
   let temperature = document.querySelector("#temperature");
   let cityName = document.querySelector("#city");
@@ -29,6 +56,7 @@ function getTemperature(response) {
   let wind = document.querySelector("#wind");
   let locationTime = document.querySelector("#location-time");
   let weatherIcon = document.querySelector("#weather-icon");
+  showForecast();
 
   celsiusTemp = response.data.temperature.current;
 
