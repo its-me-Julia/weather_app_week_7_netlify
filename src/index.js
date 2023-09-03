@@ -21,7 +21,15 @@ function getDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-function showForecast() {
+function getForecast(coordinates) {
+  let apiKey = `b2dt6f634c03ca0b6c80o88e820fa880`;
+  let units = "metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -56,8 +64,7 @@ function getTemperature(response) {
   let wind = document.querySelector("#wind");
   let locationTime = document.querySelector("#location-time");
   let weatherIcon = document.querySelector("#weather-icon");
-  showForecast();
-
+  getForecast(response.data.coordinates);
   celsiusTemp = response.data.temperature.current;
 
   temperature.innerHTML = `${Math.round(response.data.temperature.current)}°`;
