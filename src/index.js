@@ -44,7 +44,8 @@ function formatForecastDay(timestamp) {
 
 function showForecast(response) {
   let forecastData = response.data.daily;
-
+  celsiusMaxTempForecast = response.data.daily[0].temperature.maximum;
+  celsiusMinTempForecast = response.data.daily[0].temperature.minimum;
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecastData.forEach(function (forecastDay, index) {
@@ -62,10 +63,10 @@ function showForecast(response) {
               width="70px"
             />
             <div class="forecast-temperature">
-              <span class="forecast-max-temperature">${Math.round(
+              <span class="forecast-max-temperature" id="forecast-max-temperature">${Math.round(
                 forecastDay.temperature.maximum
               )}°</span> /
-              <span class="forecast-min-temperature">${Math.round(
+              <span class="forecast-min-temperature" id="forecast-min-temperature">${Math.round(
                 forecastDay.temperature.minimum
               )}°</span>
             </div>
@@ -120,20 +121,32 @@ searchForm.addEventListener("submit", submitForm);
 
 function changeToFahr() {
   let fahrTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  let fahrTempMaxForecast = Math.round((celsiusMaxTempForecast * 9) / 5 + 32);
+  let fahrTempMinForecast = Math.round((celsiusMinTempForecast * 9) / 5 + 32);
   let temp = document.querySelector("#temperature");
+  let maxTempForecast = document.querySelector("#forecast-max-temperature");
+  let minTempForecast = document.querySelector("#forecast-min-temperature");
   temp.innerHTML = `${fahrTemp}°`;
+  maxTempForecast.innerHTML = `${fahrTempMaxForecast}°`;
+  minTempForecast.innerHTML = `${fahrTempMinForecast}°`;
   cels.classList.remove("active");
   fahr.classList.add("active");
 }
 
 function changeToCels() {
   let temp = document.querySelector("#temperature");
+  let maxTempForecast = document.querySelector("#forecast-max-temperature");
+  let minTempForecast = document.querySelector("#forecast-min-temperature");
+  maxTempForecast.innerHTML = `${Math.round(celsiusMaxTempForecast)}°`;
+  minTempForecast.innerHTML = `${Math.round(celsiusMinTempForecast)}°`;
   temp.innerHTML = `${Math.round(celsiusTemp)}°`;
   cels.classList.add("active");
   fahr.classList.remove("active");
 }
 
 let celsiusTemp = null;
+let celsiusMaxTempForecast = null;
+let celsiusMinTempForecast = null;
 let fahr = document.querySelector("#fahr");
 let cels = document.querySelector("#cels");
 fahr.addEventListener("click", changeToFahr);
